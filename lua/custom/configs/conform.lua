@@ -21,7 +21,6 @@ local options = {
       args = { "$FILENAME" },
       cwd = require("conform.util").root_file { ".prettierrc", "package.json" },
       stdin = true,
-      exit_codes = { 0, 1 },
     },
   },
 
