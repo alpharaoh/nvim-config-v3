@@ -17,3 +17,8 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.formatoptions:remove "o"
   end,
 })
+
+vim.g.startup_bookmarks = {
+  ["Q"] = "~/.config/nvim/lua/custom/plugins.lua ",
+  ["I"] = "~/.config/fish/config.fish ",
+}
