@@ -6,7 +6,8 @@ M.general = {
     [";"] = { ":", "enter command mode", opts = { nowait = true } },
     ["<C-d>"] = { "<C-d>zz", "Center and scroll down", opts = { nowait = true } },
     ["<C-u>"] = { "<C-u>zz", "Center and scroll up", opts = { nowait = true } },
-
+    ["<A-k>"] = { "<cmd> :m .-2 <CR>==", "Move line up" },
+    ["<A-j>"] = { "<cmd> :m +1 <CR>==", "Move line down" },
     --  format with conform
     ["<leader>fm"] = {
       function()
@@ -15,7 +16,10 @@ M.general = {
       "formatting",
     },
   },
-  v = {},
+  v = {
+    ["<A-k>"] = { ":move '<-2<CR>gv=gv", "Move selection up", opts = {} },
+    ["<A-j>"] = { ":move '>+1<CR>gv=gv", "Move selection down", opts = {} },
+  },
   i = {
     ["kj"] = { "<Esc>", "enter visual mode", opts = { nowait = true } },
   },
@@ -24,6 +28,7 @@ M.general = {
 M.telescope = {
   n = {
     ["<leader>fs"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
+    ["<leader>a"] = { "<cmd> Telescope buffers <CR>", "Buffers" },
   },
 }
 
