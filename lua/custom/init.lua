@@ -18,6 +18,8 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.g.nvimtree_side = "right"
+
 vim.g.startup_bookmarks = {
   ["Q"] = "~/.config/nvim/lua/custom/plugins.lua ",
   ["I"] = "~/.config/fish/config.fish ",
