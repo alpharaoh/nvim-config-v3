@@ -29,6 +29,7 @@ M.telescope = {
   n = {
     ["<leader>fs"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<leader>a"] = { "<cmd> Telescope buffers <CR>", "Buffers" },
+    ["gr"] = { "<cmd> Telescope lsp_references <CR>", "LSP References" },
   },
 }
 
