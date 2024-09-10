@@ -167,6 +167,18 @@ local plugins = {
   },
 
   {
+    "rhysd/git-messenger.vim",
+    cmd = "GitMessenger",
+    lazy = false,
+  },
+
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    lazy = false,
+  },
+
+  {
     "zbirenbaum/copilot-cmp",
     after = { "copilot.lua" },
     config = function()
@@ -203,7 +215,6 @@ local plugins = {
       vim.keymap.set("n", "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
       vim.keymap.set("n", "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
       vim.keymap.set("n", "<C-\\>", nvim_tmux_nav.NvimTmuxNavigateLastActive)
-      vim.keymap.set("n", "<C-Space>", nvim_tmux_nav.NvimTmuxNavigateNext)
     end,
   },
 
