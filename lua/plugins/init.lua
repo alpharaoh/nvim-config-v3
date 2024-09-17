@@ -59,10 +59,10 @@ local default_plugins = {
     opts = function()
       return require("plugins.configs.others").blankline
     end,
-    config = function(_, opts)
+    config = function()
       require("core.utils").load_mappings "blankline"
       dofile(vim.g.base46_cache .. "blankline")
-      require("indent_blankline").setup(opts)
+      require("ibl").setup {}
     end,
   },
 
