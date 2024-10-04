@@ -15,6 +15,7 @@ M.general = {
       end,
       "formatting",
     },
+    ["<leader>db"] = { "<cmd> :DBUIToggle <CR>", "Toggle Database Explorer" },
   },
   v = {
     ["<A-k>"] = { ":move '<-2<CR>gv=gv", "Move selection up", opts = {} },
