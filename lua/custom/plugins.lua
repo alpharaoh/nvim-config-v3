@@ -157,7 +157,7 @@ local plugins = {
           trace = "verbose",
           settings = {
             advanced = {
-              listCount = 6, -- #completions for panel
+              listCount = 6,          -- #completions for panel
               inlineSuggestCount = 5, -- #completions for getCompletions
             },
           },
@@ -221,7 +221,7 @@ local plugins = {
   {
     "kristijanhusak/vim-dadbod-ui",
     dependencies = {
-      { "tpope/vim-dadbod", lazy = true },
+      { "tpope/vim-dadbod",                     lazy = true },
       { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true }, -- Optional
     },
     cmd = {
@@ -249,6 +249,16 @@ local plugins = {
   --   "mg979/vim-visual-multi",
   --   lazy = false,
   -- }
+
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter/nvim-treesitter',
+    lazy = false,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+  }
 }
+
 
 return plugins
