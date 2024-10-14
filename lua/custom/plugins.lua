@@ -257,6 +257,32 @@ local plugins = {
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
     },
+  },
+
+  {
+    "folke/zen-mode.nvim",
+    lazy = false,
+    config = function()
+      require('zen-mode').setup {}
+    end,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  },
+
+  {
+    "folke/twilight.nvim",
+    lazy = false,
+    config = function()
+      require('twilight').setup {}
+    end,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
   }
 }
 
