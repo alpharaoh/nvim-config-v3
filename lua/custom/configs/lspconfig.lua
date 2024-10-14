@@ -10,5 +10,11 @@ for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
+    init_options = {
+      preferences = {
+        -- Will use the import alias set in tsconfig.json for auto imports
+        importModuleSpecifierPreference = "non-relative"
+      }
+    }
   }
 end
