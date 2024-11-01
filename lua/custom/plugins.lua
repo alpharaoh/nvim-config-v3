@@ -261,7 +261,7 @@ local plugins = {
 
   {
     "folke/zen-mode.nvim",
-    lazy = false,
+    lazy = true,
     config = function()
       require('zen-mode').setup {}
     end,
@@ -274,7 +274,7 @@ local plugins = {
 
   {
     "folke/twilight.nvim",
-    lazy = false,
+    lazy = true,
     config = function()
       require('twilight').setup {}
     end,

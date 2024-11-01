@@ -35,3 +35,5 @@ vim.g.startup_bookmarks = {
   ["Q"] = "~/.config/nvim/lua/custom/plugins.lua ",
   ["I"] = "~/.config/fish/config.fish ",
 }
+
+vim.opt.shell = "/bin/bash"
