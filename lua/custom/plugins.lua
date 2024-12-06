@@ -34,7 +34,35 @@ local plugins = {
     "max397574/better-escape.nvim",
     event = "InsertEnter",
     config = function()
-      require("better_escape").setup()
+      require("better_escape").setup {
+        mappings = {
+          i = {
+            j = {
+              k = "<Esc>",
+              j = "<Esc>",
+            },
+          },
+          c = {
+            j = {
+              k = false,
+            },
+          },
+          t = {
+            j = {
+              k = false,
+            },
+          },
+          v = {
+            j = {
+              k = false,
+            },
+          },
+          s = {
+            j = {
+              k = false,
+            },
+          },
+        } }
     end,
   },
 
