@@ -117,8 +117,11 @@ local plugins = {
   {
     "startup-nvim/startup.nvim",
     requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    dependencies = {
+      { "nvim-telescope/telescope-fzf-native.nvim", build = 'make' }
+    },
     config = function()
-      require("startup").setup { theme = "startify" }
+      require("startup").setup { theme = "startify", extensions = { fzf = {} } }
     end,
     lazy = false,
   },
