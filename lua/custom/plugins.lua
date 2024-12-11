@@ -122,6 +122,7 @@ local plugins = {
     },
     config = function()
       require("startup").setup { theme = "startify", extensions = { fzf = {} } }
+      require("telescope").load_extension("fzf")
     end,
     lazy = false,
   },
