@@ -128,6 +128,8 @@ local plugins = {
   },
   {
     "zbirenbaum/copilot.lua",
+    -- Disabled in favour of Supermaven
+    enabled = false,
     cmd = "Copilot",
     event = "InsertEnter",
     --opts = overrides.copilot, -- have your own local overrided configurations in: custom/configs/overrides.lua
@@ -196,6 +198,18 @@ local plugins = {
         },
       }
     end,
+  },
+
+  {
+    "supermaven-inc/supermaven-nvim",
+    config = function()
+      require("supermaven-nvim").setup({
+        keymaps = {
+          accept_suggestion = '<C-l>',
+        }
+      })
+    end,
+    lazy = false,
   },
 
   {
