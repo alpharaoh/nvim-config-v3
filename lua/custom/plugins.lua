@@ -331,6 +331,14 @@ local plugins = {
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
     }
+  },
+
+  -- Typeracer
+  {
+    "nvzone/typr",
+    dependencies = "nvzone/volt",
+    opts = {},
+    cmd = { "Typr", "TyprStats" },
   }
 }
 
