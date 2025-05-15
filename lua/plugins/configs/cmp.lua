@@ -110,16 +110,16 @@ local options = {
     { name = "buffer" },
     { name = "nvim_lua" },
     { name = "path" },
-    { name = "copilot" },
+    -- { name = "copilot" },
     -- { name = "supermaven" },
   },
   dependencies = {
-    {
-      "zbirenbaum/copilot-cmp",
-      config = function()
-        require("copilot_cmp").setup()
-      end,
-    },
+    -- {
+    --   "zbirenbaum/copilot-cmp",
+    --   config = function()
+    --     require("copilot_cmp").setup()
+    --   end,
+    -- },
   },
 }
 

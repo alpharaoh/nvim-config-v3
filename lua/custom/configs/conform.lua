@@ -17,7 +17,7 @@ local options = {
   },
   formatters = {
     custom_prettier = {
-      command = "/usr/local/bin/prettierd",
+      command = "/opt/homebrew/bin/prettierd",
       args = { "$FILENAME" },
       cwd = require("conform.util").root_file { ".prettierrc", "package.json" },
       stdin = true,

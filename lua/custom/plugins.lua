@@ -62,7 +62,8 @@ local plugins = {
               k = false,
             },
           },
-        } }
+        },
+      }
     end,
   },
 
@@ -118,98 +119,98 @@ local plugins = {
     "startup-nvim/startup.nvim",
     requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
     dependencies = {
-      { "nvim-telescope/telescope-fzf-native.nvim", build = 'make' }
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     config = function()
       require("startup").setup { theme = "startify", extensions = { fzf = {} } }
-      require("telescope").load_extension("fzf")
+      require("telescope").load_extension "fzf"
     end,
     lazy = false,
   },
-  {
-    "zbirenbaum/copilot.lua",
-    -- Disabled in favour of Supermaven
-    enabled = false,
-    cmd = "Copilot",
-    event = "InsertEnter",
-    --opts = overrides.copilot, -- have your own local overrided configurations in: custom/configs/overrides.lua
-    config = function()
-      require("copilot").setup {
-        panel = {
-          enabled = true,
-          auto_refresh = false,
-          keymap = {
-            jump_prev = "[[",
-            jump_next = "]]",
-            accept = "<CR>",
-            refresh = "gr",
-            open = "<M-CR>",
-          },
-          layout = {
-            position = "right", -- | top | left | right
-            ratio = 0.4,
-          },
-        },
-        suggestion = {
-          enabled = true,
-          --auto_trigger = false, -- if autocomplete menu doesn't show while you type, setting this to true is recommended
-          auto_trigger = true, -- if autocomplete menu doesn't show while you type, setting this to true is recommended
-          debounce = 75,
-          keymap = {
-            accept = "<C-l>",
-            accept_word = false,
-            accept_line = false,
-            next = "<C-]>",
-            prev = "<M-[>",
-            --dismiss = "<C-]>",
-            dismiss = "<C-e>",
-          },
-        },
-        filetypes = {
-          yaml = false,
-          markdown = false,
-          help = false,
-          gitcommit = false,
-          gitrebase = false,
-          hgcommit = false,
-          svn = false,
-          cvs = false,
-          javascript = true, -- allow specific filetype
-          typescript = true, -- allow specific filetype
-          ["."] = false,
-          --["*"] = false, -- disable for all other filetypes and ignore default `filetypes`
-          sh = function()
-            if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env.*") then
-              -- disable for .env files
-              return false
-            end
-            return true
-          end,
-        },
-        copilot_node_command = "node", -- Node.js version must be > 16.x
-        server_opts_overrides = {
-          trace = "verbose",
-          settings = {
-            advanced = {
-              listCount = 6,          -- #completions for panel
-              inlineSuggestCount = 5, -- #completions for getCompletions
-            },
-          },
-        },
-      }
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   -- Disabled in favour of Supermaven
+  --   enabled = false,
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   --opts = overrides.copilot, -- have your own local overrided configurations in: custom/configs/overrides.lua
+  --   config = function()
+  --     require("copilot").setup {
+  --       panel = {
+  --         enabled = true,
+  --         auto_refresh = false,
+  --         keymap = {
+  --           jump_prev = "[[",
+  --           jump_next = "]]",
+  --           accept = "<CR>",
+  --           refresh = "gr",
+  --           open = "<M-CR>",
+  --         },
+  --         layout = {
+  --           position = "right", -- | top | left | right
+  --           ratio = 0.4,
+  --         },
+  --       },
+  --       suggestion = {
+  --         enabled = true,
+  --         --auto_trigger = false, -- if autocomplete menu doesn't show while you type, setting this to true is recommended
+  --         auto_trigger = true, -- if autocomplete menu doesn't show while you type, setting this to true is recommended
+  --         debounce = 75,
+  --         keymap = {
+  --           accept = "<C-l>",
+  --           accept_word = false,
+  --           accept_line = false,
+  --           next = "<C-]>",
+  --           prev = "<M-[>",
+  --           --dismiss = "<C-]>",
+  --           dismiss = "<C-e>",
+  --         },
+  --       },
+  --       filetypes = {
+  --         yaml = false,
+  --         markdown = false,
+  --         help = false,
+  --         gitcommit = false,
+  --         gitrebase = false,
+  --         hgcommit = false,
+  --         svn = false,
+  --         cvs = false,
+  --         javascript = true, -- allow specific filetype
+  --         typescript = true, -- allow specific filetype
+  --         ["."] = false,
+  --         --["*"] = false, -- disable for all other filetypes and ignore default `filetypes`
+  --         sh = function()
+  --           if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env.*") then
+  --             -- disable for .env files
+  --             return false
+  --           end
+  --           return true
+  --         end,
+  --       },
+  --       copilot_node_command = "node", -- Node.js version must be > 16.x
+  --       server_opts_overrides = {
+  --         trace = "verbose",
+  --         settings = {
+  --           advanced = {
+  --             listCount = 6, -- #completions for panel
+  --             inlineSuggestCount = 5, -- #completions for getCompletions
+  --           },
+  --         },
+  --       },
+  --     }
+  --   end,
+  -- },
 
   {
     "supermaven-inc/supermaven-nvim",
     enabled = true,
     config = function()
-      require("supermaven-nvim").setup({
+      require("supermaven-nvim").setup {
         keymaps = {
-          accept_suggestion = '<C-l>',
+          accept_suggestion = "<C-l>",
         },
         disable_inline_completion = false,
-      })
+      }
     end,
     lazy = false,
   },
@@ -226,27 +227,27 @@ local plugins = {
     lazy = false,
   },
 
-  {
-    "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
-    config = function()
-      require("copilot_cmp").setup {
-        formatters = {
-          label = require("copilot_cmp.format").format_label_text,
-          insert_text = require("copilot_cmp.format").format_insert_text,
-          insert_text = require("copilot_cmp.format").remove_existing,
-          preview = require("copilot_cmp.format").deindent,
-        },
-        mapping = {
-          ["<CR>"] = cmp.mapping.confirm {
-            -- this is the important line
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = false,
-          },
-        },
-      }
-    end,
-  },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   after = { "copilot.lua" },
+  --   config = function()
+  --     require("copilot_cmp").setup {
+  --       formatters = {
+  --         label = require("copilot_cmp.format").format_label_text,
+  --         insert_text = require("copilot_cmp.format").format_insert_text,
+  --         insert_text = require("copilot_cmp.format").remove_existing,
+  --         preview = require("copilot_cmp.format").deindent,
+  --       },
+  --       mapping = {
+  --         ["<CR>"] = cmp.mapping.confirm {
+  --           -- this is the important line
+  --           behavior = cmp.ConfirmBehavior.Replace,
+  --           select = false,
+  --         },
+  --       },
+  --     }
+  --   end,
+  -- },
 
   {
     "alexghergh/nvim-tmux-navigation",
@@ -269,7 +270,7 @@ local plugins = {
   {
     "kristijanhusak/vim-dadbod-ui",
     dependencies = {
-      { "tpope/vim-dadbod",                     lazy = true },
+      { "tpope/vim-dadbod", lazy = true },
       { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true }, -- Optional
     },
     cmd = {
@@ -299,39 +300,39 @@ local plugins = {
   -- }
 
   {
-    'nvim-treesitter/nvim-treesitter-textobjects',
-    after = 'nvim-treesitter/nvim-treesitter',
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    after = "nvim-treesitter/nvim-treesitter",
     lazy = false,
     dependencies = {
-      'nvim-treesitter/nvim-treesitter',
+      "nvim-treesitter/nvim-treesitter",
     },
   },
 
-  {
-    "folke/zen-mode.nvim",
-    lazy = true,
-    config = function()
-      require('zen-mode').setup {}
-    end,
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-  },
+  -- {
+  --   "folke/zen-mode.nvim",
+  --   lazy = true,
+  --   config = function()
+  --     require("zen-mode").setup {}
+  --   end,
+  --   opts = {
+  --     -- your configuration comes here
+  --     -- or leave it empty to use the default settings
+  --     -- refer to the configuration section below
+  --   },
+  -- },
 
-  {
-    "folke/twilight.nvim",
-    lazy = true,
-    config = function()
-      require('twilight').setup {}
-    end,
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-  },
+  -- {
+  --   "folke/twilight.nvim",
+  --   lazy = true,
+  --   config = function()
+  --     require("twilight").setup {}
+  --   end,
+  --   opts = {
+  --     -- your configuration comes here
+  --     -- or leave it empty to use the default settings
+  --     -- refer to the configuration section below
+  --   },
+  -- },
 
   -- Typeracer
   -- {
@@ -341,7 +342,7 @@ local plugins = {
   --   cmd = { "Typr", "TyprStats" },
   -- }
   {
-    'stevearc/oil.nvim',
+    "stevearc/oil.nvim",
     ---@module 'oil'
     ---@type oil.SetupOpts
     opts = {},
@@ -350,8 +351,7 @@ local plugins = {
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
-  }
+  },
 }
-
 
 return plugins
